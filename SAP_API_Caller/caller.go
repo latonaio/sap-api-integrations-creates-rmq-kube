@@ -2,6 +2,7 @@ package sap_api_caller
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"sap-api-integrations-xxxxxxxx-xxxxxxxx-creates-rmq-kube/SAP_API_Caller/requests"
@@ -103,7 +104,8 @@ func (c *SAPAPICaller) callXXXXXXXXSrvAPIRequirementHeader(api string, header *r
 }
 
 func (c *SAPAPICaller) Item(item *requests.Item) {
-	outputDataItem, err := c.callXXXXXXXXSrvAPIRequirementItem("A_XXXXXXXXX", item)
+	url := fmt.Sprintf("A_XXXXXXXXXX", item.XXXXXXXX)
+	outputDataItem, err := c.callXXXXXXXXSrvAPIRequirementItem(url, item)
 	if err != nil {
 		c.log.Error(err)
 		return
